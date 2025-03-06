@@ -1,0 +1,9 @@
+= UNIX Programming =
+
+A storage space for my university UNIX programming course tasks.
+
+== Task 1 ==
+C/C++ console app: chat based on sockets (with processes or threads which communicate).
+
+== Task 2 ==
+Shell scripts.
