@@ -33,3 +33,5 @@
 
 *.burdur
 
+.DS_Store
+
