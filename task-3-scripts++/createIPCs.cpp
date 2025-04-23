@@ -7,8 +7,8 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
+
 	shmget(IPC_PRIVATE, 100, IPC_CREAT | 0666);
 	perror("shmget");
 	semget(IPC_PRIVATE, 2, IPC_CREAT | 0666);
