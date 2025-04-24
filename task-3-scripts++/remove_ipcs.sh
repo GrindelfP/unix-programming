@@ -30,4 +30,3 @@ echo "Found shared memory segments: $shm_ids_"
 remove_ipcs "semaphores" "-s" "$sem_ids_"
 remove_ipcs "message queues" "-q" "$msgq_ids_"
 remove_ipcs "shared memory segments" "-m" "$shm_ids_"
-
