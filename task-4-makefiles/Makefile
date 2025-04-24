@@ -1,6 +1,6 @@
 SRCS = hello.cpp factorial.cpp fibonacci.cpp runme.cpp
 OBJS = $(SRCS:.cpp=.o)
-TARGET = make-example
+TARGET = make-example.out
 
 all: $(TARGET)
 $(TARGET): $(OBJS)
