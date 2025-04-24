@@ -18,6 +18,8 @@ void signal_handler(int signum) {
             close(server_fd);
             unlink(SOCKET_PATH);
         }
+        // Wait for all child processes to exit
+        while (wait(nullptr) > 0);
         exit(0);
     }
 }
@@ -93,7 +95,7 @@ int main() {
             perror("fork");
             close(client_fd);
         } else if (pid == 0) { // Child process
-            // Close the server socket in the child
+            // Close the listening socket in the child
             close(server_fd);
 
             // Set up signal handler for SIGINT in the child process
@@ -135,8 +137,9 @@ int main() {
         } else { // Parent process
             // Close the client socket in the parent (parent doesn't communicate directly)
             close(client_fd);
-            // Reap zombie children
-            wait(nullptr);
+            // The parent process should immediately go back to accepting new connections
+            // We should avoid blocking here waiting for the child if we want to handle multiple clients concurrently.
+            // The signal handler will take care of cleaning up child processes upon exit.
         }
     }
 
